@@ -210,8 +210,10 @@ int size = 0;
 void list(FILE *db_file) {
   entry *p = load_entries(db_file);
   entry *base = p;
+  int num=0;
   while (p!=NULL) {
     printf("%-20s : %10s\n", p->name, p->phone);
+    num++;
     p=p->next;
   }
   /* TBD print total count */
@@ -251,8 +253,7 @@ int delete(FILE *db_file, char *name) {
       
        deleted = 1;
        break;
-    }
-    else{
+    }else{
       prev = p;
       p = p->next;
     }
